@@ -14,7 +14,8 @@ Instructions
 
 * Create an empty directory and cd into it
 ```bash
-mkdir CardToExcel && cd CardToExcel
+mkdir CardToExcel 
+cd CardToExcel
 ```
 * Clone the repository
 ```bash
