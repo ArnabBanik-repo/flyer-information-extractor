@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Info Extractor</title>
+  </head>
+  <body>
+    <h1>Guest Lecture Information Extractor</h1>
+    <hr />
+    <p>Upload the guest lecture invitation flyer and the application will provide you with an excel sheet with the important fields</p>
+
+    <br />
+    <h3>Upload your flyer here</h3>
+    <form id='form' action='/handle_flyer' method='post' enctype="multipart/form-data">
+      <input type="file" accept="image/png, image/jpeg" name='file' id='file_input'/>
+      <br />
+      <br />
+      <button>Upload</button>
+    </form>
+
+    <script defer>
+      const form = document.getElementById('form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let f = document.getElementById('file_input').files;
+        if(f.length === 0){
+          alert("Upload a file first");
+          return;
+        }
+        f = f[0];
+        if(!(f.type === 'image/jpeg' || f.type === 'image/png')){
+          alert("Please upload only jpeg or png files");
+          return;
+        }
+
+        let data = new FormData()
+        data.append('name', 'arnab')
+        data.append('file', f)
+
+        fetch(`${window.origin}/handle_flyer`, {
+          method:'POST',
+          body: data,
+          cache: 'no-cache',
+        }).then(res => {
+          if(res.status !== 200){
+            console.error(res.statusText);
+            return;
+          }
+          res.json().then(r => {
+            console.log(r);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
