@@ -3,16 +3,76 @@
   <head>
     <meta charset="utf-8">
     <title>Info Extractor</title>
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inter:wght@400;500&display=swap');
+      *{
+        margin: 0;
+        border: 0;
+        padding:0;
+        box-sizing: border-box;
+        color: #270213;
+        font-family: 'Inter'
+      }
+      body{
+        background-color: #fdd8e9;
+        padding: 5rem;
+        text-align: center;
+      }
+      button{
+        background-color: #f5197c;
+        color: #270213;
+        padding: 1rem 1.8rem;
+        border-radius: 0.4rem;
+        font-size: 16px;
+        transition: all ease 0.3s;
+        cursor: pointer;
+
+        margin-top: 2rem;
+      }
+      button:hover{
+        transform: translateY(-0.2rem);
+        box-shadow: 6px 20px 73px -16px rgba(245,10,116,0.75);
+        -webkit-box-shadow: 6px 20px 73px -16px rgba(245,10,116,0.75);
+        -moz-box-shadow: 6px 20px 73px -16px rgba(245,10,116,0.75);
+      }
+      h1, h3{
+        font-family: 'Fjalla One'
+      }
+      h1{
+        font-size: 70px;
+      }
+      h3{
+        font-size: 20px;
+      }
+      p{
+        font-size: 16px;
+        margin-bottom: 1rem;
+      }
+      input[type="file"] {
+        display: none;
+      }
+      label{
+        background-color: #fdcee3;
+        color: #270213;
+        padding: 1rem 1.8rem;
+        border-radius: 0.4rem;
+        font-size: 16px;
+        transition: all ease 0.3s;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <h1>Guest Lecture Information Extractor</h1>
-    <hr />
     <p>Upload the guest lecture invitation flyer and the application will provide you with an excel sheet with the important fields</p>
 
     <br />
-    <h3>Upload your flyer here</h3>
+    <!-- <h3>Upload your flyer here</h3> -->
     <form id='form' action='/handle_flyer' method='post' enctype="multipart/form-data">
+      <label>
       <input type="file" accept="image/png, image/jpeg" name='file' id='file_input'/>
+      Upload your file here
+      </label>
       <br />
       <br />
       <button>Convert</button>
