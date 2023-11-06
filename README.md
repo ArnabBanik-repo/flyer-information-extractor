@@ -32,3 +32,5 @@ git clone --depth=1 https://github.com/ArnabBanik-repo/flyer-information-extract
 
 ## Authors
 - [Arnab Banik](https://www.github.com/ArnabBanik-repo)
+- [Aleena](https://www.github.com/a-leena)
+- [Sneha Michelle V](https://www.github.com/Namslay26)
