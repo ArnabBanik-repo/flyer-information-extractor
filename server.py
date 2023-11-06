@@ -1,12 +1,15 @@
 import os
-from flask import Flask, render_template, jsonify, request, make_response, send_from_directory
+from flask import Flask, render_template, jsonify, request, make_response, send_from_directory, send_file
 from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = './uploads'
-ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png'}
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+def process_data(filename):
+    print(f"Processing ", filename)
+    print("Processing complete")
 
 @app.route("/")
 def home():
@@ -19,11 +22,11 @@ def handle_data():
     file = request.files['file']
     filename = secure_filename(file.filename)
     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    return make_response(jsonify({'file':filename}), 200)
 
-@app.route('/download_data')
-def donwload_data():
-    return "Donwload"
+    process_data(filename);
+
+    path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    return send_file(path, as_attachment=True)
     
 if __name__ == "__main__":
     app.run(debug=True)

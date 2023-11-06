@@ -15,7 +15,7 @@
       <input type="file" accept="image/png, image/jpeg" name='file' id='file_input'/>
       <br />
       <br />
-      <button>Upload</button>
+      <button>Convert</button>
     </form>
 
     <script defer>
@@ -34,7 +34,6 @@
         }
 
         let data = new FormData()
-        data.append('name', 'arnab')
         data.append('file', f)
 
         fetch(`${window.origin}/handle_flyer`, {
@@ -46,9 +45,16 @@
             console.error(res.statusText);
             return;
           }
-          res.json().then(r => {
-            console.log(r);
-          });
+          return res.blob();
+        }).then(blob => {
+          let a = document.createElement('a');
+          document.body.appendChild(a);
+          a.style = 'display:none';
+          const url = window.URL.createObjectURL(blob);
+          a.href = url;
+          a.download = 'download'
+          a.click();
+          window.URL.revokeObjectURL(url);
         });
       });
     </script>
