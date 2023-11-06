@@ -3,23 +3,142 @@
   <head>
     <meta charset="utf-8">
     <title>Info Extractor</title>
+   
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+          *{
+            margin: 0;
+            border: 0;
+            padding:0;
+            box-sizing: border-box;
+            color: #f9eff4;
+            font-family: 'Inter'
+          }
+          body{
+            background: #0f0c29;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            padding: 5rem;
+            text-align: center;
+          }
+          button{
+            background-color: #f5197c;
+            color: white;
+            padding: 1rem 1.8rem;
+            border-radius: 0.4rem;
+            font-size: 16px;
+            transition: all ease 0.3s;
+            cursor: pointer;
+            margin-top: 5rem;
+          }
+          button:hover{
+            transform: translateY(-0.2rem);
+            box-shadow: 6px 20px 73px -16px rgba(245,10,116,0.75);
+            -webkit-box-shadow: 6px 20px 73px -16px rgba(245,10,116,0.75);
+            -moz-box-shadow: 6px 20px 73px -16px rgba(245,10,116,0.75);
+          }
+          h1, h3{
+            font-family: 'Poppins'
+          }
+          h1{
+            font-size: 70px;
+          }
+          h3{
+            font-size: 20px;
+          }
+          p{
+            font-size: 16px;
+            margin-bottom: 1rem;
+            font: Poppins;
+          }
+          
+          
+          label{
+            background-color: #ffc8e2c8;
+            color: hsl(332, 90%, 8%);
+            padding: 6rem 9.8rem;
+            border: 2px dashed #f50a74;
+            color: #1b1b1b;
+            border-radius: 0.8rem;
+            font-size: 20px;
+            transition: all ease 0.3s;
+            cursor: pointer;
+          }
+
+          label:hover{
+            background-color: #fec3de;
+          }
+
+          .inputtext{
+            margin: 4px;
+            color: #1b1b1b;
+          }
+
+          .inputs{
+            margin: 30px;
+          }
+
+          .excel{
+            color: rgb(150, 248, 150);
+          }
+
+          .gli{
+            color: rgb(255, 139, 139);
+          }
+
+          ul li{
+            text-decoration: none;
+            list-style-type: none;
+          }
+        </style>
+    
   </head>
   <body>
+    
     <h1>Guest Lecture Information Extractor</h1>
+    <h3>
+      <span class="gli">Guest Lecture Images</span> to <span class="excel">Excel Sheets</span> in no time!
+    </h3>
     <hr />
-    <p>Upload the guest lecture invitation flyer and the application will provide you with an excel sheet with the important fields</p>
+    <br>
+    <br>
+    <ul>
+      <li>
+        Upload Guest Lecture Image in the box below, 
+      </li>
+      <li>
+        Click Convert
+      </li>
+      <li>
+        Let us do our magic!
+      </li>
+    </ul>
 
     <br />
     <h3>Upload your flyer here</h3>
-    <form id='form' action='/handle_flyer' method='post' enctype="multipart/form-data">
-      <input type="file" accept="image/png, image/jpeg" name='file' id='file_input'/>
-      <br />
-      <br />
-      <button>Convert</button>
-    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="inputs">
+      <form id='form' action='/handle_flyer' method='post' enctype="multipart/form-data">
+        <label>
+          <input type="file" class="inputtext" accept="image/png, image/jpeg" name="file" id="file_input">
+        </label>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button class="convert-button">Convert</button>
+      </form>
+      <h3>Get your results now!</h3>
+    </div>
+      
+    
+    
 
     <script defer>
-      const form = document.getElementById('form');
+       const form = document.getElementById('form');
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         let f = document.getElementById('file_input').files;
