@@ -45,16 +45,24 @@ def process_data(filename):
         ["Time:",1],
         ["Faculty Coordinators:",0]]
     
-    text_data = []
+    text_data = [[]]
     for i in range(0,len(categories)):
+        # if (i==10):
+        #     data = lines[getIndex(lines,spotters[i][0]) + spotters[i][1]]
+        #     if (data[-4:]==" and"):
+        #         data += " " + lines[getIndex(lines,spotters[i][0]) + spotters[i][1] + 1]
+        #     text_data.append([categories[i],data])
+        # else:
+        #     text_data.append([categories[i],lines[getIndex(lines,spotters[i][0]) + spotters[i][1]]])
+        
         if (i==10):
             data = lines[getIndex(lines,spotters[i][0]) + spotters[i][1]]
             if (data[-4:]==" and"):
                 data += " " + lines[getIndex(lines,spotters[i][0]) + spotters[i][1] + 1]
-            text_data.append([categories[i],data])
+            text_data[0].append(data)
         else:
-            text_data.append([categories[i],lines[getIndex(lines,spotters[i][0]) + spotters[i][1]]])
-            
+            text_data[0].append(lines[getIndex(lines,spotters[i][0]) + spotters[i][1]])
+
         # print(text_data[i])
     print(text_data)
     excel_path = ex.saveAsExcel(filename.split('.')[0],text_data)
