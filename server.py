@@ -3,7 +3,7 @@ from flask import Flask, render_template, jsonify, request, make_response, send_
 from werkzeug.utils import secure_filename
 from PIL import Image
 import pytesseract
-pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 import excel as ex
 
 UPLOAD_FOLDER = 'uploads'
