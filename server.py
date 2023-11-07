@@ -87,10 +87,6 @@ def process_data(filename):
 def home():
     return render_template("home.html")
 
-@app.route("/success")
-def success():
-    return render_template("result.html")
-
 @app.route('/handle_flyer', methods=['POST'])
 def handle_data():
     if not 'file' in request.files:
