@@ -64,10 +64,15 @@ def process_data(filename):
         if (i==10):
             if (data[-4:]==" and"):
                 data += " " + lines[getIndex(lines,spotters[i][0]) + spotters[i][1] + 1]
+
         if (i>=7 and i!=8):
              data = data.split(":")[1].strip()
         elif (i==8):
             data = data[getIndexNumber(data):]
+            
+        if (i==9):
+            if "(" in data:
+                data = data[:data.find(')')+1]
 
         text_data[0].append(data)
         # print(text_data[i])
