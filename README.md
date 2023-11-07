@@ -4,10 +4,11 @@ A web application that lets you automate guest lecture information extraction fr
 
 ## Installation
 
-Inorder to install CardToExcel you will need the following dependencies
+In order to run CardToExcel you will need the following dependencies
 * Python3
 * flask using pip3
 * openpyxl using pip3
+* Tesseract-OCR
 * pytesseract using pip3
 
 Instructions
@@ -21,6 +22,9 @@ cd CardToExcel
 ```bash
 git clone --depth=1 https://github.com/ArnabBanik-repo/flyer-information-extractor/ .
 ```
+* Install Tesseract-OCR on your system
+  For windows: Save it in C:\Program Files (x86) 
+  
 * Install dependencies
 ```bash
   ./bin/pip3 install flask openpyxl pytesseract
@@ -29,6 +33,13 @@ git clone --depth=1 https://github.com/ArnabBanik-repo/flyer-information-extract
 ```bash
   ./bin/python3 server.py
 ```
+* Get sample Invitation Flyer images from Project_Codes/dataset/images folder
+
+In order to generate more Flyer samples, cd into the Project_Codes directory and run the dataset_generator
+```bash
+  ./bin/python3 dataset_generator.py
+```
+
 
 ## Authors
 - [Arnab Banik](https://www.github.com/ArnabBanik-repo)
