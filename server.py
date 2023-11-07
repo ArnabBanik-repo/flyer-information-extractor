@@ -22,6 +22,12 @@ def getIndex (array,substring):
             return i
     return -1
 
+def getIndexNumber (string) :
+    for i, char in enumerate(string):
+        if char.isdigit():
+            return i
+    return -1
+
 def process_data(filename):
     print(f"Processing ", filename)
 
@@ -54,15 +60,16 @@ def process_data(filename):
         #     text_data.append([categories[i],data])
         # else:
         #     text_data.append([categories[i],lines[getIndex(lines,spotters[i][0]) + spotters[i][1]]])
-        
+        data = lines[getIndex(lines,spotters[i][0]) + spotters[i][1]]
         if (i==10):
-            data = lines[getIndex(lines,spotters[i][0]) + spotters[i][1]]
             if (data[-4:]==" and"):
                 data += " " + lines[getIndex(lines,spotters[i][0]) + spotters[i][1] + 1]
-            text_data[0].append(data)
-        else:
-            text_data[0].append(lines[getIndex(lines,spotters[i][0]) + spotters[i][1]])
+        if (i>=7 and i!=8):
+             data = data.split(":")[1].strip()
+        elif (i==8):
+            data = data[getIndexNumber(data):]
 
+        text_data[0].append(data)
         # print(text_data[i])
     print(text_data)
     excel_path = ex.saveAsExcel(filename.split('.')[0],text_data)
