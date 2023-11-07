@@ -102,20 +102,22 @@
     <hr />
     <br>
     <br>
-    <ul>
-      <li>
-        Upload Guest Lecture Image in the box below, 
-      </li>
-      <li>
-        Click Convert
-      </li>
-      <li>
-        Let us do our magic!
-      </li>
-    </ul>
+    <div id="instructions">
+      <ul>
+        <li>
+          Upload Guest Lecture Image in the box below, 
+        </li>
+        <li>
+          Click Convert
+        </li>
+        <li>
+          Let us do our magic!
+        </li>
+      </ul>
+    </div>
 
     <br />
-    <h3>Upload your flyer here</h3>
+    <h3 id="content-change">Upload your flyer here</h3>
     <br>
     <br>
     <br>
@@ -129,7 +131,7 @@
         <br>
         <br>
         <br>
-        <button class="convert-button">Convert</button>
+        <button >Convert</button>
       </form>
       <h3>Get your results now!</h3>
     </div>
@@ -174,6 +176,10 @@
           a.download = 'download'
           a.click();
           window.URL.revokeObjectURL(url);
+          document.getElementById("content-change").innerHTML = "Successfully uploaded!";
+          document.getElementById("content-change").style.color = "rgb(150, 248, 150)";
+          document.getElementById("content-change").style.fontSize="32px";
+          document.getElementById("content-change").style.textShadow = "2px rgb(150, 248, 150)"
         });
       });
     </script>
