@@ -8,6 +8,7 @@ In order to run CardToExcel you will need the following dependencies
 * Python3
 * flask using pip3
 * openpyxl using pip3
+* Pillow using pip3
 * Tesseract-OCR
 * pytesseract using pip3
 
