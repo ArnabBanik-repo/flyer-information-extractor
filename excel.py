@@ -1,9 +1,7 @@
 import openpyxl
-
 def saveAsExcel(filename,text_data):
     workbook = openpyxl.Workbook()
     worksheet = workbook.active
-    
     for row in text_data:
         worksheet.append(row)
     

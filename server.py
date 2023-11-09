@@ -3,7 +3,7 @@ from flask import Flask, render_template, jsonify, request, make_response, send_
 from werkzeug.utils import secure_filename
 from PIL import Image
 import pytesseract
-pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe'
 import excel as ex
 
 UPLOAD_FOLDER = 'uploads'
@@ -51,15 +51,8 @@ def process_data(filename):
         ["Time:",1],
         ["Faculty Coordinators:",0]]
     
-    text_data = [[]]
+    text_data = [categories,[]]
     for i in range(0,len(categories)):
-        # if (i==10):
-        #     data = lines[getIndex(lines,spotters[i][0]) + spotters[i][1]]
-        #     if (data[-4:]==" and"):
-        #         data += " " + lines[getIndex(lines,spotters[i][0]) + spotters[i][1] + 1]
-        #     text_data.append([categories[i],data])
-        # else:
-        #     text_data.append([categories[i],lines[getIndex(lines,spotters[i][0]) + spotters[i][1]]])
         data = lines[getIndex(lines,spotters[i][0]) + spotters[i][1]]
         if (i==10):
             if (data[-4:]==" and"):
@@ -73,11 +66,11 @@ def process_data(filename):
         if (i==9):
             if "(" in data:
                 data = data[:data.find(')')+1]
-
-        text_data[0].append(data)
+        text_data[1].append(data)
         # print(text_data[i])
     print(text_data)
     excel_path = ex.saveAsExcel(filename.split('.')[0],text_data)
+    
 
     print("Processing complete")
     return excel_path
