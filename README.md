@@ -34,9 +34,9 @@ git clone --depth=1 https://github.com/ArnabBanik-repo/flyer-information-extract
 ```bash
   ./bin/python3 server.py
 ```
-* Get sample Invitation Flyer images from Project_Codes/dataset/images folder
+* Get sample Invitation Flyer images from Dataset_generator/dataset/images folder
 
-In order to generate more Flyer samples, cd into the Project_Codes directory and run the dataset_generator
+In order to generate more Flyer samples, cd into the Dataset_generator directory and run the dataset_generator
 ```bash
   ./bin/python3 dataset_generator.py
 ```
